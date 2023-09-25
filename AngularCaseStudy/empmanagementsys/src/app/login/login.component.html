@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+   
+<!-- Make sure you have included Angular Material styles and modules in your project -->
+
+<div class="container mt-5" [formGroup]="loginForm">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title class="text-center">Login</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form>
+                        <mat-form-field class="form-group">
+                            <mat-label>Username</mat-label>
+                            <input matInput type="text" formControlName="UserName" placeholder="Enter your Username"/>
+                            <mat-error *ngIf="loginForm.get('UserName').hasError('required')">Username is required</mat-error>
+                            <mat-error *ngIf="loginForm.get('UserName').hasError('minlength')">Username Minimum Length is {{ loginForm.get('UserName').getError('minlength').requiredLength }}</mat-error>
+                        </mat-form-field>
+                        
+                        <mat-form-field class="form-group">
+                            <mat-label>Password</mat-label>
+                            <input matInput type="password" formControlName="Password" placeholder="Enter your Password" />
+                            <mat-error *ngIf="loginForm.get('Password').hasError('required')">Password is required</mat-error>
+                            <mat-error *ngIf="loginForm.get('Password').hasError('minlength')">Password Minimum Length is {{ loginForm.get('Password').getError('minlength').requiredLength }}</mat-error>
+                        </mat-form-field>
+                        
+                        <button mat-raised-button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid" (click)="login()">Login</button>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

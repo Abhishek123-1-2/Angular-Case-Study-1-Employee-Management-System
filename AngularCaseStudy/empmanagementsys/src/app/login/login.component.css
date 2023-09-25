@@ -1,0 +1,68 @@
+/* Center the form vertically and horizontally */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0; /* Add a background color */
+  }
+  
+  /* Style the card */
+  mat-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Card background color */
+  }
+  
+  /* Style the form fields */
+  mat-form-field {
+    width: 100%;
+  }
+  
+  /* Style the submit button */
+  button[type="submit"] {
+    margin-top: 20px;
+    background-color: #1976D2; /* Blue color for the button */
+    color: white;
+  }
+  
+  /* Disable button when form is invalid */
+  button[type="submit"]:disabled {
+    background-color: #B0BEC5; /* Grey color for disabled button */
+    color: #757575;
+    cursor: not-allowed;
+  }
+  
+  /* Style the card header */
+  mat-card-header {
+    background-color: #1976D2; /* Blue color for the card header */
+    color: white;
+    text-align: center;
+  }
+  
+  /* Style the card title */
+  mat-card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the card content */
+  mat-card-content {
+    padding: 0; /* Remove padding to make content more compact */
+  }
+  
+  /* Style the form labels */
+  mat-label {
+    font-weight: bold;
+    color: #333; /* Label text color */
+  }
+  
+  /* Style the error messages */
+  mat-error {
+    color: #f44336; /* Red color for error messages */
+    font-size: 12px;
+  }
+  

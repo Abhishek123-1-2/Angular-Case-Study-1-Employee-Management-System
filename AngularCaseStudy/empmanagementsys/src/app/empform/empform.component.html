@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Form</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    
+        <!-- Make sure you have included Angular Material styles and modules in your project -->
+
+<div class="container mt-5" [formGroup]="loginForm">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title class="text-center">Employee Information</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>First Name</mat-label>
+                                    <input matInput type="text" formControlName="firstName" [(ngModel)]="employeeObj.Fname"
+                                        [ngClass]="{'is-valid': loginForm.controls.firstName.valid, 'is-invalid': loginForm.controls.firstName.invalid}"
+                                        placeholder="Enter first name">
+                                    <mat-error *ngIf="loginForm.get('firstName').hasError('required')">First Name is required</mat-error>
+                                    <mat-error *ngIf="loginForm.get('firstName').hasError('minlength')">First Name Minimum Length is {{ loginForm.get('firstName').getError('minlength').requiredLength }}</mat-error>
+                                    <mat-error *ngIf="loginForm.get('firstName').hasError('pattern')">First Name must start with an uppercase letter and contain only alphabets</mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Last Name</mat-label>
+                                    <input matInput type="text" formControlName="lastName" [(ngModel)]="employeeObj.Lname"
+                                        [ngClass]="{'is-valid': loginForm.controls.lastName.valid, 'is-invalid': loginForm.controls.lastName.invalid}"
+                                        placeholder="Enter last name">
+                                    <mat-error *ngIf="loginForm.get('lastName').hasError('required')">Last Name is required</mat-error>
+                                    <mat-error *ngIf="loginForm.get('lastName').hasError('minlength')">Last Name Minimum Length is {{ loginForm.get('lastName').getError('minlength').requiredLength }}</mat-error>
+                                    <mat-error *ngIf="loginForm.get('lastName').hasError('pattern')">Last Name must start with an uppercase letter and contain only alphabets</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Contact Number</mat-label>
+                                    <input matInput type="text" formControlName="contactNo" [(ngModel)]="employeeObj.Contact"
+                                        [ngClass]="{'is-valid': loginForm.controls.contactNo.valid, 'is-invalid': loginForm.controls.contactNo.invalid}"
+                                        placeholder="Enter Contact No">
+                                    <mat-error *ngIf="loginForm.get('contactNo').hasError('required')">Contact Number is required</mat-error>
+                                    <mat-error *ngIf="loginForm.get('contactNo').hasError('minlength')">Contact Number Minimum Length is {{ loginForm.get('contactNo').getError('minlength').requiredLength }}</mat-error>
+                                    <mat-error *ngIf="loginForm.get('contactNo').hasError('pattern')">Contact Number must have Numbers</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput type="email" formControlName="email" [(ngModel)]="employeeObj.Email"
+                                        [ngClass]="{'is-valid': loginForm.controls.email.valid, 'is-invalid': loginForm.controls.email.invalid}"
+                                        placeholder="Enter Email">
+                                    <mat-error *ngIf="loginForm.get('email').hasError('required')">Email is required</mat-error>
+                                    <mat-error *ngIf="loginForm.get('email').hasError('email')">Enter Valid Email Address</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Date of Birth</mat-label>
+                                    <input matInput type="date" formControlName="dob" [(ngModel)]="employeeObj.Dob"
+                                        [ngClass]="{'is-valid': loginForm.controls.dob.valid, 'is-invalid': loginForm.controls.dob.invalid}">
+                                    <mat-error *ngIf="loginForm.get('dob').hasError('required')">DOB is required</mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Address</mat-label>
+                                    <textarea matInput formControlName="address" [(ngModel)]="employeeObj.Add"
+                                        placeholder="Enter address" rows="3"></textarea>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Emp Id</mat-label>
+                                    <input matInput type="text" formControlName="id" [(ngModel)]="employeeObj.id"
+                                        [ngClass]="{'is-valid': loginForm.controls.id.valid, 'is-invalid': loginForm.controls.id.invalid}">
+                                    <mat-error *ngIf="loginForm.get('id').hasError('required')">ID is required</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <button mat-raised-button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid" (click)="onSubmit()">Submit</button>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+ <!-- ... Other HTML content above ... -->
+
+<!-- ... Other HTML content above ... -->
+
+<div class="container">
+    <h1 style="margin-top: 20px;">Employee Records</h1>
+
+    <table mat-table class="mat-elevation-z8" [dataSource]="employeeData" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <!-- First Column - FirstName -->
+        <ng-container matColumnDef="Fname">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold; text-align: left; background-color: #f5f5f5;"> First Name </th>
+            <td mat-cell *matCellDef="let emp" style="padding: 8px;"> {{ emp.Fname }} </td>
+        </ng-container>
+
+        <!-- Second Column - LastName -->
+        <ng-container matColumnDef="Lname">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold; text-align: left; background-color: #f5f5f5;"> Last Name </th>
+            <td mat-cell *matCellDef="let emp" style="padding: 8px;"> {{ emp.Lname }} </td>
+        </ng-container>
+
+        <!-- Third Column - Contact Number -->
+        <ng-container matColumnDef="Contact">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold; text-align: left; background-color: #f5f5f5;"> Contact No </th>
+            <td mat-cell *matCellDef="let emp" style="padding: 8px;"> {{ emp.Contact }} </td>
+        </ng-container>
+
+        <!-- Fourth Column - Email -->
+        <ng-container matColumnDef="Email">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold; text-align: left; background-color: #f5f5f5;"> Email </th>
+            <td mat-cell *matCellDef="let emp" style="padding: 8px;"> {{ emp.Email }} </td>
+        </ng-container>
+
+        <!-- Fifth Column - Date of Birth -->
+        <ng-container matColumnDef="Dob">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold; text-align: left; background-color: #f5f5f5;"> Dob </th>
+            <td mat-cell *matCellDef="let emp" style="padding: 8px;"> {{ emp.Dob }} </td>
+        </ng-container>
+
+        <!-- Sixth Column - Address -->
+        <ng-container matColumnDef="Add">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold; text-align: left; background-color: #f5f5f5;"> Address </th>
+            <td mat-cell *matCellDef="let emp" style="padding: 8px;"> {{ emp.Add }} </td>
+        </ng-container>
+
+        <!-- Seventh Column - Actions -->
+        <ng-container matColumnDef="Actions">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold; text-align: left; background-color: #f5f5f5;"> Actions </th>
+            <td mat-cell *matCellDef="let emp" style="padding: 8px;">
+                <button mat-icon-button style="padding: 4px;"(click)="select(emp)">
+                    <mat-icon style="font-size: 18px;">visibility</mat-icon>
+                </button>
+                <button mat-icon-button style="padding: 4px;"(click)="update()">
+                    <mat-icon style="font-size: 18px;">edit</mat-icon>
+                </button>
+                <button mat-icon-button style="padding: 4px;"(click)="delete()">
+                    <mat-icon style="font-size: 18px;">delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+<!-- ... Other HTML content below ... -->
+
+
+<!-- ... Other HTML content below ... -->
+
+      
+        
+        
+        
+
+            
+            
+    
+</body>
+
+</html>

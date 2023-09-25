@@ -1,0 +1,45 @@
+/* styles.css */
+
+/* Apply styles to the entire table */
+.mat-elevation-z8 {
+    width: 100%;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    max-width: 800px;
+    margin-top: 30px;
+}
+
+/* Style table header cells */
+.mat-header-cell {
+    background-color: #007BFF;
+    color:black;
+    font-weight: bold;
+}
+
+/* Style table data cells */
+.mat-cell {
+    padding: 12px;
+    text-align: left;
+}
+
+/* Apply alternating row background color */
+.mat-row:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Style the logout button */
+.logout-button {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
